@@ -1,8 +1,19 @@
-const resgisterModel = require('../models/registerModel');
+const registerModel = require('../models/registerModel');
+const { createToken } = require('../auth/tokenCreation');
 
 const createUser = async (name, email, password) => {
-  const user = await resgisterModel.createUser(name, email, password);
+  const user = await registerModel.createUser(name, email, password);
   return user;
 };
 
-module.exports = { createUser };
+const loginUser = async (email, _password) => {
+  const user = await registerModel.findByEmail(email);
+  console.log(user);
+  const token = createToken(user);
+  return token;
+};
+
+module.exports = {
+  createUser,
+  loginUser,
+};
