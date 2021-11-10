@@ -1,15 +1,14 @@
-import * as React from "react";
-import { Routes, Route } from "react-router-dom";
-import "./App.css";
-import Login from './pages/Login/Login'
-import Register from './pages/Register/Register'
+import * as React from 'react';
+import Routes from './Routes';
+import './App.css';
+import Provider from './context/Provider';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-      <Routes>
-        <Route exact path="/" element={<Login />} />
-        <Route exact path="/register" element={<Register />} />
-      </Routes>
+    <Provider>
+      <Routes />
+    </Provider>
   );
 }
 
