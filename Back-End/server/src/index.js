@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const loginRouter = require('./router/loginRouter');
@@ -6,6 +7,7 @@ const registerRouter = require('./router/registerRouter');
 const todoRouter = require('./router/todoRouter');
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 const PORT = '3001';

@@ -33,5 +33,6 @@ module.exports = {
       },
     ],
     'object-curly-newline': 'off',
+    'max-len': 'off',
   },
 };

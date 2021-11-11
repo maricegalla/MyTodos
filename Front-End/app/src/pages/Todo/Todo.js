@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Form } from 'react-bootstrap';
+import Context from '../../context/Context';
+import Header from './components/Header';
 
-function Login() {
+function Todo() {
+  const {
+    emailLogin,
+  } = useContext(Context);
   return (
     <>
-      Todo
+      <Header />
+      <Form.Label>{emailLogin}</Form.Label>
     </>
   );
 }
 
-export default Login;
+export default Todo;
