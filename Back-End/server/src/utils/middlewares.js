@@ -1,6 +1,5 @@
 const registerModel = require('../models/registerModel');
 const {
-  createError,
   emailError,
   loginError,
   credentialsError,
@@ -10,11 +9,11 @@ const registerValidator = async (req, res, next) => {
   const { name, email, password } = req.body;
 
   if (!name || typeof name !== 'string') {
-    return res.status(createError.error.status).json({ message: createError.error.message });
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
   }
 
   if (!email) {
-    return res.status(createError.error.status).json({ message: createError.error.message });
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
   }
 
   const findByEmail = await registerModel.findByEmail(email);
@@ -23,7 +22,7 @@ const registerValidator = async (req, res, next) => {
   }
 
   if (!password) {
-    return res.status(createError.error.status).json({ message: createError.error.message });
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
   }
 
   next();
@@ -43,7 +42,26 @@ const loginValidator = async (req, res, next) => {
   next();
 };
 
+const creatTaskValidator = async (req, res, next) => {
+  const { user, task, status } = req.body;
+
+  if (!user || typeof user !== 'string') {
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
+  }
+
+  if (!task) {
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
+  }
+
+  if (!status) {
+    return res.status(loginError.error.status).json({ message: loginError.error.message });
+  }
+
+  next();
+};
+
 module.exports = {
   registerValidator,
   loginValidator,
+  creatTaskValidator,
 };

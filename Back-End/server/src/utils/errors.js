@@ -1,9 +1,3 @@
-const createError = {
-  error: {
-    message: 'Invalid entries. Try again.',
-    status: 400 },
-};
-
 const emailError = {
   error: {
     message: 'Email already registered',
@@ -13,7 +7,7 @@ const emailError = {
 const loginError = {
   error: {
     message: 'All fields must be filled',
-    status: 401 },
+    status: 400 },
 };
 
 const credentialsError = {
@@ -22,9 +16,24 @@ const credentialsError = {
     status: 401 },
 };
 
+const tokenNotFoundError = {
+  error: {
+    status: 401,
+    message: 'Token not found',
+  },
+};
+
+const invalidTokenError = {
+  error: {
+    status: 401,
+    message: 'Expired or invalid token',
+  },
+};
+
 module.exports = {
-  createError,
   emailError,
   loginError,
   credentialsError,
+  tokenNotFoundError,
+  invalidTokenError,
 };
