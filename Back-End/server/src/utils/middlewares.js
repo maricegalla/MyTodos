@@ -43,11 +43,7 @@ const loginValidator = async (req, res, next) => {
 };
 
 const creatTaskValidator = async (req, res, next) => {
-  const { user, task, status } = req.body;
-
-  if (!user || typeof user !== 'string') {
-    return res.status(loginError.error.status).json({ message: loginError.error.message });
-  }
+  const { task, status } = req.body;
 
   if (!task) {
     return res.status(loginError.error.status).json({ message: loginError.error.message });

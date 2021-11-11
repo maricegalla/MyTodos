@@ -10,4 +10,16 @@ router.post('/',
   creatTaskValidator,
   todoController.createTask);
 
+router.get('/',
+  tokenAuth,
+  todoController.getAllTasks);
+
+router.get('/status',
+  tokenAuth,
+  todoController.getAllTasksStatus);
+
+router.get('/date',
+  tokenAuth,
+  todoController.getAllTasksDate);
+
 module.exports = router;

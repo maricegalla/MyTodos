@@ -7,9 +7,35 @@ const createTask = async (req, res) => {
 
   const payload = verify(authorization);
   const user = payload.email;
-  const { createdTask } = await todoServices.createTask(user, task, status);
-  // return res.status(201).json('Task successfully created');
-  return res.status(201).json({ createdTask });
+  await todoServices.createTask(user, task, status);
+  return res.status(201).json('Task successfully created');
 };
 
-module.exports = { createTask };
+const getAllTasks = async (req, res) => {
+  const { authorization } = req.headers;
+  const payload = verify(authorization);
+  const user = payload.email;
+
+  const tasks = await todoServices.getAllTasks(user);
+  return res.status(200).json(tasks);
+};
+
+const getAllTasksStatus = async (req, res) => {
+  const { authorization } = req.headers;
+  const payload = verify(authorization);
+  const user = payload.email;
+
+  const tasks = await todoServices.getAllTasksStatus(user);
+  return res.status(200).json(tasks);
+};
+
+const getAllTasksDate = async (req, res) => {
+  const { authorization } = req.headers;
+  const payload = verify(authorization);
+  const user = payload.email;
+
+  const tasks = await todoServices.getAllTasksDate(user);
+  return res.status(200).json(tasks);
+};
+
+module.exports = { createTask, getAllTasks, getAllTasksStatus, getAllTasksDate };
