@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
-import Home from './components/Home';
+import Create from './components/Create';
 
-function Todo() {
+function CreateTodo() {
   return (
     <>
       <Header />
-      <Home />
+      <Create />
     </>
   );
 }
 
-export default Todo;
+export default CreateTodo;

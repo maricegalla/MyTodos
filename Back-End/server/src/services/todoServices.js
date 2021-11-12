@@ -5,15 +5,15 @@ const createTask = async (user, task, status) => {
   return createdTask;
 };
 
-const getAllTasks = async (user) => {
-  const tasks = await todoModel.getAllTasks(user);
-  return tasks;
-};
+// const getAllTasks = async (user) => {
+//   const tasks = await todoModel.getAllTasks(user);
+//   return tasks;
+// };
 
-const getAllTasksStatus = async (user) => {
-  const tasks = await todoModel.getAllTasksStatus(user);
-  return tasks;
-};
+// const getAllTasksStatus = async (user) => {
+//   const tasks = await todoModel.getAllTasksStatus(user);
+//   return tasks;
+// };
 
 const getAllTasksDate = async (user) => {
   const tasks = await todoModel.getAllTasksDate(user);
@@ -26,7 +26,7 @@ const getById = async (id) => {
 };
 
 module.exports = { createTask,
-  getAllTasks,
-  getAllTasksStatus,
+  // getAllTasks,
+  // getAllTasksStatus,
   getAllTasksDate,
   getById };

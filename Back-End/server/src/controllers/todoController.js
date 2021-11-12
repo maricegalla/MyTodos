@@ -11,23 +11,23 @@ const createTask = async (req, res) => {
   return res.status(201).json('Task successfully created');
 };
 
-const getAllTasks = async (req, res) => {
-  const { authorization } = req.headers;
-  const payload = verify(authorization);
-  const user = payload.email;
+// const getAllTasks = async (req, res) => {
+//   const { authorization } = req.headers;
+//   const payload = verify(authorization);
+//   const user = payload.email;
 
-  const tasks = await todoServices.getAllTasks(user);
-  return res.status(200).json(tasks);
-};
+//   const tasks = await todoServices.getAllTasks(user);
+//   return res.status(200).json(tasks);
+// };
 
-const getAllTasksStatus = async (req, res) => {
-  const { authorization } = req.headers;
-  const payload = verify(authorization);
-  const user = payload.email;
+// const getAllTasksStatus = async (req, res) => {
+//   const { authorization } = req.headers;
+//   const payload = verify(authorization);
+//   const user = payload.email;
 
-  const tasks = await todoServices.getAllTasksStatus(user);
-  return res.status(200).json(tasks);
-};
+//   const tasks = await todoServices.getAllTasksStatus(user);
+//   return res.status(200).json(tasks);
+// };
 
 const getAllTasksDate = async (req, res) => {
   const { authorization } = req.headers;
@@ -45,7 +45,7 @@ const getById = async (req, res) => {
 };
 
 module.exports = { createTask,
-  getAllTasks,
-  getAllTasksStatus,
+  // getAllTasks,
+  // getAllTasksStatus,
   getAllTasksDate,
   getById };

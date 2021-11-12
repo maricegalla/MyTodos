@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
-import Home from './components/Home';
+import View from './components/View';
 
-function Todo() {
+function ViewTodo() {
   return (
     <>
       <Header />
-      <Home />
+      <View />
     </>
   );
 }
 
-export default Todo;
+export default ViewTodo;

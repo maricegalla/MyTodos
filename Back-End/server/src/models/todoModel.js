@@ -9,17 +9,17 @@ const createTask = async (user, task, status) => {
   return { createdTask: { user, task, status, _id: result.insertedId, createdAt } };
 };
 
-const getAllTasks = async (user) => {
-  const db = await getConnection();
-  const result = await db.collection('todos').find({ user }).sort({ task: 1 }).toArray();
-  return result;
-};
+// const getAllTasks = async (user) => {
+//   const db = await getConnection();
+//   const result = await db.collection('todos').find({ user }).sort({ task: 1 }).toArray();
+//   return result;
+// };
 
-const getAllTasksStatus = async (user) => {
-  const db = await getConnection();
-  const result = await db.collection('todos').find({ user }).sort({ status: 1 }).toArray();
-  return result;
-};
+// const getAllTasksStatus = async (user) => {
+//   const db = await getConnection();
+//   const result = await db.collection('todos').find({ user }).sort({ status: 1 }).toArray();
+//   return result;
+// };
 
 const getAllTasksDate = async (user) => {
   const db = await getConnection();
@@ -35,7 +35,7 @@ const getById = async (id) => {
 };
 
 module.exports = { createTask,
-  getAllTasks,
-  getAllTasksStatus,
+  // getAllTasks,
+  // getAllTasksStatus,
   getAllTasksDate,
   getById };

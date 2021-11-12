@@ -30,7 +30,7 @@ function Login() {
     e.preventDefault();
     try {
       const data = await api.post('/', { email: emailLogin, password: passwordLogin });
-      setToken(data.data);
+      setToken(data.data.token);
       navigate('/todo');
     } catch (error) {
       Swal.fire({
