@@ -26,4 +26,8 @@ router.get('/:id',
   tokenAuth,
   todoController.getById);
 
+router.put('/:id',
+  tokenAuth,
+  todoController.editById);
+
 module.exports = router;
