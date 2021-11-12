@@ -30,4 +30,8 @@ router.put('/:id',
   tokenAuth,
   todoController.editById);
 
+router.delete('/:id',
+  tokenAuth,
+  todoController.deleteById);
+
 module.exports = router;
