@@ -22,4 +22,8 @@ router.get('/date',
   tokenAuth,
   todoController.getAllTasksDate);
 
+router.get('/:id',
+  tokenAuth,
+  todoController.getById);
+
 module.exports = router;

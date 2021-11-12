@@ -38,4 +38,14 @@ const getAllTasksDate = async (req, res) => {
   return res.status(200).json(tasks);
 };
 
-module.exports = { createTask, getAllTasks, getAllTasksStatus, getAllTasksDate };
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const task = await todoServices.getById(id);
+  return res.status(200).json(task);
+};
+
+module.exports = { createTask,
+  getAllTasks,
+  getAllTasksStatus,
+  getAllTasksDate,
+  getById };

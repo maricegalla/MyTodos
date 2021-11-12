@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 const moment = require('moment');
 const getConnection = require('./connection');
 
@@ -26,4 +27,15 @@ const getAllTasksDate = async (user) => {
   return result;
 };
 
-module.exports = { createTask, getAllTasks, getAllTasksStatus, getAllTasksDate };
+const getById = async (id) => {
+  if (!ObjectId.isValid(id)) return null;
+  const db = await getConnection();
+  const result = await db.collection('todos').findOne({ _id: ObjectId(id) });
+  return result;
+};
+
+module.exports = { createTask,
+  getAllTasks,
+  getAllTasksStatus,
+  getAllTasksDate,
+  getById };

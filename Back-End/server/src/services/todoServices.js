@@ -20,4 +20,13 @@ const getAllTasksDate = async (user) => {
   return tasks;
 };
 
-module.exports = { createTask, getAllTasks, getAllTasksStatus, getAllTasksDate };
+const getById = async (id) => {
+  const task = await todoModel.getById(id);
+  return task;
+};
+
+module.exports = { createTask,
+  getAllTasks,
+  getAllTasksStatus,
+  getAllTasksDate,
+  getById };
