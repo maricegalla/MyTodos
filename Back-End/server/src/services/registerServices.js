@@ -9,7 +9,6 @@ const createUser = async (name, email, password) => {
 const loginUser = async (email, _password) => {
   const user = await registerModel.findByEmail(email);
   const token = createToken(user);
-  console.log(token);
   return token;
 };
 

@@ -1,14 +1,27 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
-  Form,
+  Form, Button,
 } from 'react-bootstrap';
 import Context from '../../../context/Context';
 
 function Header() {
   const {
+    setToken,
+    setEmailLogin,
+    setTasks,
     emailLogin,
   } = useContext(Context);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    setToken('');
+    setEmailLogin('');
+    setTasks([]);
+    navigate('/');
+  };
+
   return (
     <Form className="container-fluid d-flex align-items-center justify-content-between py-3 px-5" style={{ backgroundColor: '#3F3D56' }}>
       <Form.Group className="d-flex flex-column align-items-center">
@@ -25,14 +38,14 @@ function Header() {
         My To-dos
 
       </Form.Label>
-      <Link
-        to="/"
+      <Button
         variant="light"
         type="submit"
         className="btn btn-light"
+        onClick={() => handleClick()}
       >
         <i className="bi bi-door-closed-fill" style={{ color: '#3F3D56' }} />
-      </Link>
+      </Button>
     </Form>
   );
 }
