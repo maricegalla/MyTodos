@@ -49,7 +49,7 @@ Inicie o Front-End
 
 ## Variáveis de Ambiente
 
-Para rodar este projeto, será necessário adicionar as seguintes variáveis no arquivo .env
+Para rodar este projeto, será necessário adicionar a seguinte variável no arquivo .env
 
 `SECRET`
 
