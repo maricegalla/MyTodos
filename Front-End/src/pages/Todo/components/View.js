@@ -49,6 +49,7 @@ function View() {
         text: `${data.data}`,
         confirmButtonColor: '#3F3D56',
       }).then(() => {
+        navigate('/todo/');
         navigate('/todo/view');
       });
     } catch (error) {
@@ -66,7 +67,7 @@ function View() {
       { tasks.map((t) => (
         <Card
           style={{ minWidth: '14rem' }}
-          className="m-2 text-center"
+          className="m-2 text-center shadow"
           id={t._id}
         >
           <Card.Body>
@@ -178,7 +179,7 @@ function View() {
             className="btn btn-primary mt-3 mx-2"
             style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
           >
-            <i className="bi bi-arrow-left-circle" />
+            Return
           </Button>
         </Link>
         <Link to="/todo/create">
@@ -188,7 +189,7 @@ function View() {
             className="btn btn-primary mt-3 mx-2"
             style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
           >
-            <i className="bi bi-plus-circle" />
+            Create new task
           </Button>
         </Link>
       </div>

@@ -44,9 +44,16 @@ function Login() {
 
   return (
     <>
-      <Container style={{ width: '20rem' }} className="bg-white border rounded-3 p-4 mt-5">
+      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5 text-center">
         <img src={Logo} alt="Logo" className="img-fluid" />
         <Form>
+          <Form.Label
+            className="text-center"
+            style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
+          >
+            My To-dos
+
+          </Form.Label>
           <Form.Group className="my-3">
             <Form.Control
               type="email"
@@ -78,10 +85,13 @@ function Login() {
             </Button>
           </FormGroup>
           <FormGroup className="text-center" style={{ fontSize: '0.8rem' }}>
-            <Form.Label className="mx-2 text-muted">
+            <Form.Label className="mx-1 text-muted">
               Need an account?
             </Form.Label>
             <Link to="/register">Sign Up</Link>
+            <Form.Label className="mx-1 text-muted">
+              here.
+            </Form.Label>
           </FormGroup>
         </Form>
       </Container>

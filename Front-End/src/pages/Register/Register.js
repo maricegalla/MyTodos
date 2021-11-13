@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Form, Button, Container, FormGroup,
 } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Logo from '../../images/undraw_To_do_list_re_9nt7.png';
 import api from '../../service/api';
@@ -20,6 +21,8 @@ function Register() {
     } return true;
   };
 
+  const navigate = useNavigate();
+
   const registerUser = async (e) => {
     e.preventDefault();
     try {
@@ -30,7 +33,7 @@ function Register() {
         text: `${data.data}`,
         confirmButtonColor: '#3F3D56',
       }).then(() => {
-        window.location.href = '/';
+        navigate('/');
       });
     } catch (error) {
       Swal.fire({
@@ -42,11 +45,22 @@ function Register() {
     }
   };
 
+  const cancelButton = () => {
+    navigate('/');
+  };
+
   return (
     <>
-      <Container style={{ width: '20rem' }} className="bg-white border rounded-3 p-4 mt-5">
+      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5 text-center">
         <img src={Logo} alt="Logo" className="img-fluid" />
         <Form>
+          <Form.Label
+            className="text-center"
+            style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
+          >
+            My To-dos
+
+          </Form.Label>
           <Form.Group className="my-3">
             <Form.Control
               type="text"
@@ -80,7 +94,16 @@ function Register() {
             <Button
               variant="primary"
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary mx-2"
+              style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
+              onClick={(e) => cancelButton(e)}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="primary"
+              type="submit"
+              className="btn btn-primary mx-2"
               style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
               disabled={formValidation()}
               onClick={(e) => registerUser(e)}

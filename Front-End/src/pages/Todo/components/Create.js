@@ -5,6 +5,7 @@ import Select from 'react-select';
 import Swal from 'sweetalert2';
 import Context from '../../../context/Context';
 import api from '../../../service/api';
+import Logo from '../../../images/undraw_Dev_focus_re_6iwt.png';
 
 function Create() {
   const {
@@ -59,7 +60,7 @@ function Create() {
 
   return (
     <>
-      <Container style={{ width: '20rem' }} className="bg-white border rounded-3 p-4 mt-5">
+      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5">
         <Form>
           <Form.Group className="text-center mb-3">
             <Form.Label
@@ -69,6 +70,7 @@ function Create() {
               New Task
 
             </Form.Label>
+            <img src={Logo} alt="Logo" className="img-fluid" style={{ maxWidth: '12rem' }} />
           </Form.Group>
           <Form.Group className="my-3">
             <Form.Control
@@ -81,7 +83,7 @@ function Create() {
           </Form.Group>
           <Form.Group className="my-3">
             <Select
-              placeholder="Select a status"
+              placeholder="Select one status"
               value={status}
               onChange={(option) => (option ? setStatus({ ...option }) : setStatus(null))}
               options={options}
@@ -96,7 +98,7 @@ function Create() {
               style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
               onClick={() => cancelButton()}
             >
-              <i className="bi bi-x-circle-fill" />
+              Cancel
             </Button>
             <Button
               variant="primary"
@@ -106,7 +108,7 @@ function Create() {
               onClick={(e) => saveTask(e)}
               disabled={formValidation()}
             >
-              <i className="bi bi-check-circle-fill" />
+              Create
             </Button>
           </Form.Group>
         </Form>
