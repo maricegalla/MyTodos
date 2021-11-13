@@ -26,12 +26,12 @@ router.get('/:id',
   tokenAuth,
   todoController.getById);
 
-// router.put('/:id',
-//   tokenAuth,
-//   todoController.editById);
+router.put('/:id',
+  tokenAuth,
+  todoController.editById);
 
-// router.delete('/:id',
-//   tokenAuth,
-//   todoController.deleteById);
+router.delete('/:id',
+  tokenAuth,
+  todoController.deleteById);
 
 module.exports = router;

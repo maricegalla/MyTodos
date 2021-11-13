@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
@@ -6,9 +6,10 @@ import Swal from 'sweetalert2';
 import Context from '../../../context/Context';
 import api from '../../../service/api';
 
-function Create() {
+function Edit() {
   const {
     token,
+    selectedId,
   } = useContext(Context);
 
   const [task, setTask] = useState('');
@@ -24,10 +25,21 @@ function Create() {
     } return true;
   };
 
+  const getTask = async () => {
+    const data = await api.get(`/todo/${selectedId}`, { headers: { Authorization: token } });
+    const editedTask = data.data;
+    setTask(editedTask.task);
+    setStatus({ label: editedTask.status, value: editedTask.status });
+  };
+
+  useEffect(() => {
+    getTask();
+  }, []);
+
   const saveTask = async (e) => {
     e.preventDefault();
     try {
-      const data = await api.post('/todo', { task, status: status.value }, { headers: { Authorization: token } });
+      const data = await api.put(`/todo/${selectedId}`, { task, status: status.value }, { headers: { Authorization: token } });
       Swal.fire({
         icon: 'success',
         title: 'Congrats!',
@@ -54,7 +66,7 @@ function Create() {
 
   const cancelButton = () => {
     setRequired(false);
-    navigate('/todo');
+    navigate('/todo/view');
   };
 
   return (
@@ -66,7 +78,7 @@ function Create() {
               className="text-center align-self-center"
               style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
             >
-              New Task
+              Edit Task
 
             </Form.Label>
           </Form.Group>
@@ -115,4 +127,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default Edit;

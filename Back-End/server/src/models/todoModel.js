@@ -34,8 +34,22 @@ const getById = async (id) => {
   return result;
 };
 
+const deleteById = async (id) => {
+  if (!ObjectId.isValid(id)) return null;
+  const db = await getConnection();
+  await db.collection('todos').deleteOne({ _id: ObjectId(id) });
+};
+
+const editById = async (id, task, status) => {
+  if (!ObjectId.isValid(id)) return null;
+  const db = await getConnection();
+  await db.collection('todos').updateOne({ _id: ObjectId(id) }, { $set: { task, status } });
+};
+
 module.exports = { createTask,
   // getAllTasks,
   // getAllTasksStatus,
   getAllTasksDate,
-  getById };
+  getById,
+  deleteById,
+  editById };

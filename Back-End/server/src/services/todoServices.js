@@ -25,8 +25,20 @@ const getById = async (id) => {
   return task;
 };
 
+const deleteById = async (id) => {
+  const task = await todoModel.deleteById(id);
+  return task;
+};
+
+const editById = async (id, task, status) => {
+  const editedTask = await todoModel.editById(id, task, status);
+  return editedTask;
+};
+
 module.exports = { createTask,
   // getAllTasks,
   // getAllTasksStatus,
   getAllTasksDate,
-  getById };
+  getById,
+  deleteById,
+  editById };

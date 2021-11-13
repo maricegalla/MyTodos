@@ -44,8 +44,23 @@ const getById = async (req, res) => {
   return res.status(200).json(task);
 };
 
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  await todoServices.deleteById(id);
+  return res.status(200).json('Task successfully deleted');
+};
+
+const editById = async (req, res) => {
+  const { id } = req.params;
+  const { task, status } = req.body;
+  await todoServices.editById(id, task, status);
+  return res.status(200).json('Task successfully edited');
+};
+
 module.exports = { createTask,
   // getAllTasks,
   // getAllTasksStatus,
   getAllTasksDate,
-  getById };
+  getById,
+  deleteById,
+  editById };

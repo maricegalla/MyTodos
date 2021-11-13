@@ -7,16 +7,7 @@ function Provider({ children }) {
   const [emailLogin, setEmailLogin] = useState('');
   const [token, setToken] = useState('');
   const [tasks, setTasks] = useState([]);
-
-  // const getTasks = async () => {
-  //   const data = await api.get('/todo', { headers: { Authorization: token } });
-  //   const allTasks = data.data;
-  //   setTasks(allTasks);
-  // };
-
-  // useEffect(() => {
-  //   getTasks();
-  // }, [token]);
+  const [selectedId, setSelectedId] = useState('');
 
   const contextValue = {
     emailLogin,
@@ -25,6 +16,8 @@ function Provider({ children }) {
     setToken,
     tasks,
     setTasks,
+    selectedId,
+    setSelectedId,
   };
 
   return (
