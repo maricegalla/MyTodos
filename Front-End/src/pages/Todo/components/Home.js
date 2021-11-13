@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
+import {
+  Form, Button, Container, Image,
+} from 'react-bootstrap';
 import Context from '../../../context/Context';
-import Logo from '../../../images/undraw_Hello_re_3evm.png';
+import Logo from '../../../images/undraw_hello_re_3evm.svg';
 
 function Home() {
   const {
@@ -21,7 +23,7 @@ function Home() {
     <>
       <Container style={{ width: '30rem' }} className="bg-white shadow border rounded-3 p-4 mt-5">
         <Form>
-          <Form.Group className="text-center mb-3">
+          <Form.Group className="d-flex flex-column justify-content-center text-center mb-3">
             <Form.Label
               className="text-center align-self-center"
               style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
@@ -29,7 +31,7 @@ function Home() {
               {welcome()}
 
             </Form.Label>
-            <img src={Logo} alt="Logo" className="img-fluid" style={{ maxWidth: '20rem' }} />
+            <Image src={Logo} alt="Logo" className="img-fluid align-self-center my-4" style={{ maxWidth: '17rem' }} />
           </Form.Group>
 
           <Form.Group className="d-flex text-center justify-content-evenly mb-3">

@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Form, Button, Container, FormGroup,
+  Form, Button, Container, FormGroup, Image,
 } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import Context from '../../context/Context';
-import Logo from '../../images/undraw_online_organizer_ofxm.png';
+import Logo from '../../images/undraw_online_organizer_ofxm.svg';
 import api from '../../service/api';
 
 function Login() {
@@ -45,7 +45,7 @@ function Login() {
   return (
     <>
       <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5 text-center">
-        <img src={Logo} alt="Logo" className="img-fluid" />
+        <Image src={Logo} alt="Logo" className="img-fluid my-3" style={{ width: '12rem' }} />
         <Form>
           <Form.Label
             className="text-center"

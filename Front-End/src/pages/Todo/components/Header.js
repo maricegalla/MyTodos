@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import {
   Form, Button,
 } from 'react-bootstrap';
@@ -15,11 +16,24 @@ function Header() {
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    setToken('');
-    setEmailLogin('');
-    setTasks([]);
-    navigate('/');
+  const handleExit = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: 'Are you sure',
+      text: 'You want to quit?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3F3D56',
+      cancelButtonColor: '#3F3D56',
+      confirmButtonText: 'Yes',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setToken('');
+        setEmailLogin('');
+        setTasks([]);
+        navigate('/');
+      }
+    });
   };
 
   return (
@@ -36,15 +50,19 @@ function Header() {
         style={{ color: '#FFF', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
       >
         My To-dos
-
       </Form.Label>
       <Button
-        variant="light"
+        variant="primary"
         type="submit"
+        style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
         className="btn btn-light"
-        onClick={() => handleClick()}
+        onClick={(e) => handleExit(e)}
+
       >
-        <i className="bi bi-door-closed-fill" style={{ color: '#3F3D56' }} />
+        <i
+          className="bi bi-door-open-fill"
+          style={{ fontSize: '1.5rem', color: '#FFF' }}
+        />
       </Button>
     </Form>
   );

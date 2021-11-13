@@ -3,10 +3,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import {
-  Card, Button, Container,
+  Card, Button, Container, Image,
 } from 'react-bootstrap';
 import Context from '../../../context/Context';
 import api from '../../../service/api';
+import Logo from '../../../images/undraw_celebration_re_kc9k.svg';
 
 function View() {
   const {
@@ -40,53 +41,74 @@ function View() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    try {
-      const { id } = e.currentTarget;
-      const data = await api.delete(`/todo/${id}`, { headers: { Authorization: token } });
-      Swal.fire({
-        icon: 'success',
-        title: 'Congrats!',
-        text: `${data.data}`,
-        confirmButtonColor: '#3F3D56',
-      }).then(() => {
-        navigate('/todo/');
-        navigate('/todo/view');
-      });
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: `${error.response.data.message}`,
-        confirmButtonColor: '#3F3D56',
-      });
-    }
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3F3D56',
+      cancelButtonColor: '#3F3D56',
+      confirmButtonText: 'Yes, delete it!',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const { id } = e.currentTarget;
+          const data = await api.delete(`/todo/${id}`, { headers: { Authorization: token } });
+          Swal.fire({
+            icon: 'success',
+            title: 'Congrats!',
+            text: `${data.data}`,
+            confirmButtonColor: '#3F3D56',
+          }).then(() => {
+            navigate('/todo/');
+            navigate('/todo/view');
+          });
+        } catch (error) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `${error.response.data.message}`,
+            confirmButtonColor: '#3F3D56',
+          });
+        }
+      }
+    });
   };
 
   const showTasks = () => (
-    <Container className="d-flex mt-3 justify-content-center flex-wrap">
+    <Container className="d-flex my-4 justify-content-center flex-wrap">
       { tasks.map((t) => (
         <Card
           style={{ minWidth: '14rem' }}
-          className="m-2 text-center shadow"
+          className="text-center shadow mx-2"
           id={t._id}
         >
           <Card.Body>
-            <Card.Title>{t.task}</Card.Title>
-            <Card.Text>
-              Status:
-              {' '}
+            <Card.Title className="text-center">
+              <Card.Text style={{ fontSize: '0.7rem' }}>
+                Task
+              </Card.Text>
+              {t.task}
+            </Card.Title>
+            <Card.Text className="text-center">
+              <Card.Text style={{ fontSize: '0.7rem' }}>
+                Status
+              </Card.Text>
               {t.status}
             </Card.Text>
-            <Card.Text>
+            <Card.Text className="text-center">
+              <Card.Text style={{ fontSize: '0.7rem' }}>
+                Created At
+              </Card.Text>
               {t.createdAt}
             </Card.Text>
-            <div>
+            <div className="text-center">
               <Button
                 id={t._id}
                 variant="primary"
                 type="submit"
                 className="btn btn-primary mx-1"
-                style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
+                style={{ backgroundColor: '#EFA624', borderColor: '#EFA624' }}
                 onClick={(e) => handleEdit(e)}
               >
                 <i className="bi bi-pencil-fill" />
@@ -96,7 +118,7 @@ function View() {
                 variant="primary"
                 type="submit"
                 className="btn btn-primary mx-1"
-                style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
+                style={{ backgroundColor: '#EFA624', borderColor: '#EFA624' }}
                 onClick={(e) => handleDelete(e)}
               >
                 <i className="bi bi-trash-fill" />
@@ -108,7 +130,12 @@ function View() {
     </Container>
   );
 
-  const renderMessage = () => <p className="mt-4">Well done! You don&apos;t have tasks.</p>;
+  const renderMessage = () => (
+    <div className="text-center mt-4">
+      <Image src={Logo} alt="Logo" className="img-fluid" style={{ maxWidth: '12rem' }} />
+      <p className="mt-4">Well done! You don&apos;t have tasks.</p>
+    </div>
+  );
 
   const renderCards = () => ((tasks.length > 0) ? showTasks() : renderMessage());
 

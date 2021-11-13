@@ -1,10 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import {
+  Form, Button, Container, Image,
+} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import Swal from 'sweetalert2';
 import Context from '../../../context/Context';
 import api from '../../../service/api';
+import Logo from '../../../images/undraw_options_re_9vxh.svg';
 
 function Edit() {
   const {
@@ -71,7 +74,7 @@ function Edit() {
 
   return (
     <>
-      <Container style={{ width: '20rem' }} className="bg-white border rounded-3 p-4 mt-5">
+      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-4">
         <Form>
           <Form.Group className="text-center mb-3">
             <Form.Label
@@ -81,6 +84,7 @@ function Edit() {
               Edit Task
 
             </Form.Label>
+            <Image src={Logo} alt="Logo" className="img-fluid my-2" style={{ maxWidth: '11rem' }} />
           </Form.Group>
           <Form.Group className="my-3">
             <Form.Control
@@ -108,7 +112,7 @@ function Edit() {
               style={{ backgroundColor: '#3F3D56', borderColor: '#3F3D56' }}
               onClick={() => cancelButton()}
             >
-              <i className="bi bi-x-circle-fill" />
+              Cancel
             </Button>
             <Button
               variant="primary"
@@ -118,7 +122,7 @@ function Edit() {
               onClick={(e) => saveTask(e)}
               disabled={formValidation()}
             >
-              <i className="bi bi-check-circle-fill" />
+              Edit
             </Button>
           </Form.Group>
         </Form>

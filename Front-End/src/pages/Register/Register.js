@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-  Form, Button, Container, FormGroup,
+  Form, Button, Container, FormGroup, Image,
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import Logo from '../../images/undraw_To_do_list_re_9nt7.png';
+import Logo from '../../images/undraw_to_do_list_re_9nt7.svg';
 import api from '../../service/api';
 
 function Register() {
@@ -52,7 +52,7 @@ function Register() {
   return (
     <>
       <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5 text-center">
-        <img src={Logo} alt="Logo" className="img-fluid" />
+        <Image src={Logo} alt="Logo" className="img-fluid my-3" style={{ width: '12rem' }} />
         <Form>
           <Form.Label
             className="text-center"

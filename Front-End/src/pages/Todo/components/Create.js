@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import {
+  Form, Button, Container, Image,
+} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import Swal from 'sweetalert2';
 import Context from '../../../context/Context';
 import api from '../../../service/api';
-import Logo from '../../../images/undraw_Dev_focus_re_6iwt.png';
+import Logo from '../../../images/undraw_dev_focus_re_6iwt.svg';
 
 function Create() {
   const {
@@ -60,7 +62,7 @@ function Create() {
 
   return (
     <>
-      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-5">
+      <Container style={{ width: '20rem' }} className="bg-white shadow border rounded-3 p-4 mt-4">
         <Form>
           <Form.Group className="text-center mb-3">
             <Form.Label
@@ -70,7 +72,7 @@ function Create() {
               New Task
 
             </Form.Label>
-            <img src={Logo} alt="Logo" className="img-fluid" style={{ maxWidth: '12rem' }} />
+            <Image src={Logo} alt="Logo" className="img-fluid my-2" style={{ maxWidth: '11rem' }} />
           </Form.Group>
           <Form.Group className="my-3">
             <Form.Control
