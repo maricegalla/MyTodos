@@ -7,7 +7,7 @@ O objetivo do projeto era desenvolver um sistema de gerenciamento de tarefas uti
 - [Marília Cegalla Aldrighi](https://github.com/maricegalla)
 
 
-## Rodar Localmente
+## Para rodar Localmente
 
 Clone o projeto
 
