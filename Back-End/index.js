@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const loginRouter = require('./router/loginRouter');
-const registerRouter = require('./router/registerRouter');
-const todoRouter = require('./router/todoRouter');
+const loginRouter = require('./server/src/router/loginRouter');
+const registerRouter = require('./server/src/router/registerRouter');
+const todoRouter = require('./server/src/router/todoRouter');
 
 const app = express();
 app.use(cors());
