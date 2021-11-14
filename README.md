@@ -4,7 +4,7 @@ O objetivo do projeto era desenvolver um sistema de gerenciamento de tarefas uti
 
 ## Autora
 
-- [Marília Cegalla Aldrighi](https://github.com/maricegalla)
+- [Marília Cegalla Aldrighi](https://www.linkedin.com/in/marilia-aldrighi/)
 
 
 ## Para rodar Localmente
@@ -54,3 +54,10 @@ Para rodar este projeto, será necessário adicionar a seguinte variável no arq
 `SECRET`
 
 ## Stacks e Ferramentas
+<span>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" width="60px" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg"  width="60px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg"  width="60px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="60px"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg" width="60px"/>
+</span>
