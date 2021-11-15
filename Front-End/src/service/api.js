@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-require('dotenv').config();
+// require('dotenv').config();
 
-const { URL } = process.env;
+const URL = 'http://localhost:3001' || 'https://mytodosback.herokuapp.com';
 
 const api = axios.create({
   baseURL: URL,
