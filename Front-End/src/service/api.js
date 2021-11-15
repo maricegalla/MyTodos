@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-// require('dotenv').config();
-
-const URL = 'http://localhost:3001' || 'https://mytodosback.herokuapp.com';
+const { REACT_APP_URL } = process.env;
 
 const api = axios.create({
-  baseURL: URL,
+  baseURL: REACT_APP_URL,
 });
 
 export default api;
