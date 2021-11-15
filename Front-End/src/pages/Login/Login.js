@@ -52,7 +52,6 @@ function Login() {
             style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
           >
             My To-dos
-
           </Form.Label>
           <Form.Group className="my-3">
             <Form.Control
