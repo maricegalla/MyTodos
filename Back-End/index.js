@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PORT = '3001';
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
   console.log(`💃🏻Mãe tá on na porta ${PORT}!🤘🏻`);
