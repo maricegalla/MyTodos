@@ -51,7 +51,11 @@ Inicie o Front-End
 
 Para rodar este projeto, será necessário adicionar a seguinte variável no arquivo .env
 
+No Back-End
+
 `SECRET`
+`DB_NAME`
+`MONGO_DB_URL`
 
 ## Stacks e Ferramentas
 <span>
