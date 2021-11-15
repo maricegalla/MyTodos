@@ -41,6 +41,7 @@ function View() {
 
   const handleDelete = async (e) => {
     e.preventDefault();
+    const { id } = e.currentTarget;
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -52,7 +53,6 @@ function View() {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const { id } = e.currentTarget;
           const data = await api.delete(`/todo/${id}`, { headers: { Authorization: token } });
           Swal.fire({
             icon: 'success',
