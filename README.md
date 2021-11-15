@@ -21,6 +21,12 @@ Abra o diretório do projeto
   cd mytodos
 ```
 
+Inicie o MongoDb
+
+```bash
+  sudo service mongod start
+```
+
 Instale as dependências no Back-End
 
 ```bash
@@ -56,6 +62,10 @@ No Back-End
 `SECRET`
 `DB_NAME`
 `MONGO_DB_URL`
+
+No Front-End
+
+`REACT_APP_URL`
 
 ## Stacks e Ferramentas
 <span>
