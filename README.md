@@ -55,7 +55,7 @@ Inicie o Front-End
 
 ## Variáveis de Ambiente
 
-Para rodar este projeto, será necessário adicionar a seguinte variável no arquivo .env
+Para rodar este projeto, será necessário adicionar as seguintes variáveis no arquivo .env
 
 No Back-End
 
@@ -66,6 +66,10 @@ No Back-End
 No Front-End
 
 `REACT_APP_URL`
+
+## Deploy
+
+A aplicação está diponível na seguinte URL: https://mytodosfront.herokuapp.com/
 
 ## Stacks e Ferramentas
 <span>
