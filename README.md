@@ -71,6 +71,10 @@ No Front-End
 
 A aplicação está diponível na seguinte URL: https://mytodosfront.herokuapp.com/
 
+![2XhUHDgA62](https://user-images.githubusercontent.com/76533793/141881287-3469e410-8d3b-4230-9811-1f5ed6e7d9f5.gif)
+
+
+
 ## Stacks e Ferramentas
 <span>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" width="60px" />
