@@ -83,7 +83,10 @@ function Login() {
               Sign In
             </Button>
           </FormGroup>
-          <FormGroup className="text-center" style={{ fontSize: '0.8rem' }}>
+          <FormGroup
+            className="text-center"
+            style={{ fontSize: '0.8rem' }}
+          >
             <Form.Label className="mx-1 text-muted">
               Need an account?
             </Form.Label>
