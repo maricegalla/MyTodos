@@ -37,8 +37,8 @@ function Header() {
   };
 
   return (
-    <Form className="container-fluid d-flex align-items-center justify-content-between py-3 px-5" style={{ backgroundColor: '#3F3D56' }}>
-      <Form.Group className="d-flex flex-column align-items-center">
+    <Form className="d-flex align-items-center justify-content-around py-3" style={{ backgroundColor: '#3F3D56' }}>
+      <Form.Group className="d-flex flex-column align-items-center justify-content-center">
         <i
           className="bi bi-person-circle me-2 text-center"
           style={{ fontSize: '1.5rem', color: '#FFF' }}

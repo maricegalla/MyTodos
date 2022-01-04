@@ -21,9 +21,9 @@ function Home() {
 
   return (
     <>
-      <Container style={{ width: '30rem' }} className="bg-white shadow border rounded-3 p-4 mt-5">
+      <Container style={{ width: '30%' }} className="bg-white shadow rounded-3 mx-auto my-5 py-5">
         <Form>
-          <Form.Group className="d-flex flex-column justify-content-center text-center mb-3">
+          <Form.Group className="d-flex flex-column justify-content-center text-center">
             <Form.Label
               className="text-center align-self-center"
               style={{ color: '#3F3D56', fontFamily: 'Pacifico, cursive', fontSize: '1.6rem' }}
@@ -34,7 +34,7 @@ function Home() {
             <Image src={Logo} alt="Logo" className="img-fluid align-self-center my-4" style={{ maxWidth: '17rem' }} />
           </Form.Group>
 
-          <Form.Group className="d-flex text-center justify-content-evenly mb-3">
+          <Form.Group className="d-flex text-center justify-content-evenly">
             <Link to="/todo/create">
               <Button
                 variant="primary"
